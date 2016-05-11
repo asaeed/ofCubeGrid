@@ -155,7 +155,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src;..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\components;..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\core;..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\libs;..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\libs\ofxSmartFont;..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\themes;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\jsoncpp;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\jsoncpp\json;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\libwebsockets\include\;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\src;..\..\..\App\of_v0.9.3_vs_release\addons\ofxRSSDKv2\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(RSSDK_DIR)\include;%(AdditionalIncludeDirectories);..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src;..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\components;..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\core;..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\libs;..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\libs\ofxSmartFont;..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\themes;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\jsoncpp;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\jsoncpp\json;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\libwebsockets\include\;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src;..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\src;..\..\..\App\of_v0.9.3_vs_release\addons\ofxRSSDKv2\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -166,11 +166,12 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>%(AdditionalDependencies);websockets_static.lib;ZLIB.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\libwebsockets\lib\vs\x64\Release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(RSSDK_DIR)\Lib\x64;%(AdditionalLibraryDirectories);..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\libwebsockets\lib\vs\x64\Release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\gui.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\core\ofxDatGuiComponent.cpp" />
@@ -186,8 +187,10 @@
     <ClCompile Include="..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\ofxLibwebsockets\src\Util.cpp" />
     <ClCompile Include="..\..\..\App\of_v0.9.3_vs_release\addons\ofxRSSDKv2\src\ofxRSSDKv2.cpp" />
     <ClCompile Include="src\socket.cpp" />
+    <ClCompile Include="src\vision.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\components\ofxDatGui2dPad.h" />
     <ClInclude Include="..\..\..\App\of_v0.9.3_vs_release\addons\ofxDatGui\src\components\ofxDatGuiButton.h" />
@@ -224,6 +227,7 @@
     <ClInclude Include="..\..\..\App\of_v0.9.3_vs_release\addons\ofxLibwebsockets\libs\ofxLibwebsockets\include\ofxLibwebsockets\Util.h" />
     <ClInclude Include="..\..\..\App\of_v0.9.3_vs_release\addons\ofxRSSDKv2\src\ofxRSSDKv2.h" />
     <ClInclude Include="src\socket.h" />
+    <ClInclude Include="src\vision.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

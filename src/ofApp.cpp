@@ -4,53 +4,23 @@
 void ofApp::setup()
 {
 	ofSetWindowShape(1280, 480);
-	
-	mRSSDK = ofxRSSDK::RSDevice::createUniquePtr();
-	if (!mRSSDK->init())
-	{
-		ofLogError("Unable to create ofxRSSDK object");
-		exit();
-	}
-	else
-	{
-		mRSSDK->initDepth(ofxRSSDK::DepthRes::R200_SD, 30, true);
-		mRSSDK->initRgb(ofxRSSDK::RGBRes::VGA, 30);
-		mTexRgb.allocate(mRSSDK->getRgbWidth(), mRSSDK->getRgbHeight(), GL_RGBA);
-		mTexDepth.allocate(mRSSDK->getDepthWidth(), mRSSDK->getDepthHeight(), GL_RGBA);
 
-		mRSSDK->enableBlobTracking();
+	gui.glue(&socket);
 
-		mRSSDK->start();
-	}
-
+	vision.setup();
 	socket.setup();
-
-	////////////////////////////////////////////
-	//video.listDevices();
-	////video.setDeviceID(3);
-	//bVideoSetup = video.initGrabber(320, 240);
+	gui.setup();
 
 	ofBackground(0);
 	ofSetFrameRate(30);
-	//font.load("myriad.ttf", 20);
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
-	mRSSDK->update();
-	mTexRgb.loadData(mRSSDK->getRgbFrame(), GL_BGRA);
-	mTexDepth.loadData(mRSSDK->getDepth8uFrame());
-
-	std::vector<std::vector<PXCPointI32*>> blobs = mRSSDK->getBlobs();
-	//cout << "# of blobs: " << blobs.size() << "  " << mRSSDK->getValidNumBlobs()  << endl;
-
+	vision.update();
+	gui.update();
 	socket.update();
-
-	////////////////////////////////////
-	//video.update();
-	//if (bVideoSetup && video.isFrameNew()) {
-	//}
 }
 
 //--------------------------------------------------------------
@@ -58,21 +28,14 @@ void ofApp::draw()
 {
 	ofClear(ofColor::black);
 
-	mTexRgb.draw(0, 0);
-	ofPushMatrix();
-	ofTranslate(640, 0);
-	mTexDepth.draw(0, 0, 640, 480);
-	ofPopMatrix();
-
+	vision.draw();
+	gui.draw();
 	//socket.draw();
-
-	////////////////////////////////////
-	//if (bVideoSetup) video.draw(0, 0);
 }
 
 void ofApp::exit()
 {
-	mRSSDK->stop();
+	vision.exit();
 }
 
 //--------------------------------------------------------------

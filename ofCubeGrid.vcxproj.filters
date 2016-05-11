@@ -46,6 +46,12 @@
     <ClCompile Include="src\socket.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\gui.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vision.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -222,6 +228,12 @@
       <Filter>addons\ofxRSSDKv2\src</Filter>
     </ClInclude>
     <ClInclude Include="src\socket.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vision.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

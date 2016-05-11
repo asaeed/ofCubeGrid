@@ -21,6 +21,8 @@ class Socket {
 		void onMessage(ofxLibwebsockets::Event& args);
 		void onBroadcast(ofxLibwebsockets::Event& args);
 
+		int fpsReceive;
+
 	private:
 		ofxLibwebsockets::Server server;
 		bool bSetup;

@@ -1,8 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxRSSDKv2.h"
+
+#include "gui.h"
 #include "socket.h"
+#include "vision.h"
 
 class ofApp : public ofBaseApp {
 
@@ -23,18 +25,13 @@ class ofApp : public ofBaseApp {
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
-		// websockets
+
+		// singleton, sort of - main passes single instance to others
+		Gui gui;
 		Socket socket;
+		Vision vision;
 
 	private:
-		ofTrueTypeFont font;
 
-		// realsense sensor
-		ofxRSSDK::RSDevicePtr mRSSDK;
-		ofTexture mTexRgb, mTexDepth;
-
-		// temp video grabber
-		bool bVideoSetup;
-		ofVideoGrabber video;
+		
 };
