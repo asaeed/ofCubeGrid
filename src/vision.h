@@ -21,6 +21,6 @@ private:
 	ofVideoGrabber video;
 
 	// viz
-	std::vector<ofPolyline> lines;
+	//std::vector<ofPolyline> lines;
 	//std::vector<ofPath> paths;
 };
