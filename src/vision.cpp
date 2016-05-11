@@ -12,7 +12,7 @@ void Vision::setup()
 	else
 	{
 		mRSSDK->initDepth(ofxRSSDK::DepthRes::R200_SD, 30, true);
-		mRSSDK->initRgb(ofxRSSDK::RGBRes::VGA, 30);
+		mRSSDK->initRgb(ofxRSSDK::RGBRes::SM, 30);
 		mTexRgb.allocate(mRSSDK->getRgbWidth(), mRSSDK->getRgbHeight(), GL_RGBA);
 		mTexDepth.allocate(mRSSDK->getDepthWidth(), mRSSDK->getDepthHeight(), GL_RGBA);
 		mRSSDK->enableBlobTracking();
@@ -23,6 +23,8 @@ void Vision::setup()
 	//video.listDevices();
 	////video.setDeviceID(3);
 	//bVideoSetup = video.initGrabber(320, 240);
+
+	//lines.reserve(4);
 }
 
 //--------------------------------------------------------------
@@ -36,16 +38,16 @@ void Vision::update()
 	std::vector<std::vector<int>> blobContourSizes = mRSSDK->getBlobContourSizes();
 	cout << "# of blobs: " << blobs.size() << endl;
 
+	// clear prior contours
+	for (int i = 0; i < 4; i++) lines[i].clear();
+
 	// draw first contour of each blob
-	//lines.reserve(4);
 	for (int i = 0; i < blobs.size(); i++) {
-		//lines[i].clear();
-		//paths[i].clear();
 		PXCPointI32 * points = blobs[i][0];
 		int numPoints = blobContourSizes[i][0];
 
 		for (int j = 0; j < numPoints; j++) {
-			//lines[i].addVertex(points[j].x, points[j].y);
+			lines[i].addVertex(points[j].x * 2.125, points[j].y * 2.125);
 			//paths[i].lineTo(points[j].x, points[j].y);
 		}
 	}
@@ -65,15 +67,14 @@ void Vision::draw()
 
 	mTexRgb.draw(0, 0);
 	ofPushMatrix();
-	ofTranslate(640, 0);
-	mTexDepth.draw(0, 0, 640, 480);
+	ofTranslate(0, 240);
+	mTexDepth.draw(0, 0, 320, 240);
 	ofPopMatrix();
 
-	//for (int i = 0; i < lines.size(); i++) {
-		//lines[i].draw();
+	for (int i = 0; i < 4; i++) {
+		lines[i].draw();
 		//paths[i].draw();
-	//}
-	//line.draw();
+	}
 
 	////////////////////////////////////
 	//if (bVideoSetup) video.draw(0, 0);

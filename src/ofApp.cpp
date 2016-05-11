@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	ofSetWindowShape(1280, 480);
+	//ofSetWindowShape(1920, 480);
 
 	gui.glue(&socket);
 

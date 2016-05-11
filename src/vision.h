@@ -23,4 +23,5 @@ private:
 	// viz
 	//std::vector<ofPolyline> lines;
 	//std::vector<ofPath> paths;
+	ofPolyline lines[4];
 };

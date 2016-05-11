@@ -12,7 +12,7 @@
 void Gui::setup()
 {
 	datgui->setAssetPath("");
-	datgui = new ofxDatGui(0, 0);
+	datgui = new ofxDatGui(1280, 0);
 	datgui->addHeader(":: Drag ::");
 	datgui->addFooter();
 
