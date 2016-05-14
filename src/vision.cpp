@@ -16,6 +16,7 @@ void Vision::setup()
 		mTexRgb.allocate(mRSSDK->getRgbWidth(), mRSSDK->getRgbHeight(), GL_RGBA);
 		mTexDepth.allocate(mRSSDK->getDepthWidth(), mRSSDK->getDepthHeight(), GL_RGBA);
 		mRSSDK->enableBlobTracking();
+		mRSSDK->setMirrored(true);
 		mRSSDK->start();
 	}
 
@@ -47,12 +48,10 @@ void Vision::update()
 		int numPoints = blobContourSizes[i][0];
 
 		for (int j = 0; j < numPoints; j++) {
-			lines[i].addVertex(points[j].x * 2.125, points[j].y * 2.125);
+			lines[i].addVertex(points[j].x * 2.5, points[j].y * 2.5);
 			//paths[i].lineTo(points[j].x, points[j].y);
 		}
 	}
-
-	
 
 	////////////////////////////////////
 	//video.update();
@@ -63,7 +62,7 @@ void Vision::update()
 //--------------------------------------------------------------
 void Vision::draw()
 {
-	ofClear(ofColor::black);
+	//ofClear(ofColor::black);
 
 	mTexRgb.draw(0, 0);
 	ofPushMatrix();

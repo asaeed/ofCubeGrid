@@ -1,18 +1,12 @@
-//
-//  gui.h
-//  GrabDetector
-//
-//  Created by Ahmad Saeed on 1/29/16.
-//
-//
 
 #ifndef gui_h
 #define gui_h
 
 #include "ofMain.h"
-#include "ofxDatGui.h"
+#include "ofxGui.h"
 
 class Socket;
+class Cubes;
 
 class Gui {
 
@@ -21,21 +15,24 @@ public:
 	void setup();
 	void update();
 	void draw();
+	void exit();
+	void keyPressed(int key);
 	bool mousePressed(int x, int y, int button);
+	void windowResized(int w, int h);
 
-	void glue(Socket * v);
+	void glue(Socket * x);
+	void glue(Cubes * x);
 	Socket * socketPtr;
+	Cubes * cubesPtr;
 
-	ofxDatGui * datgui;
+	void camPositionZChanged(int & camPositionZ);
 
-	ofxDatGuiSlider * sliderThreshold;
+	ofParameter<int> camPositionZ;
+	ofxButton twoCircles;
+	ofParameter<string> screenSize;
 
-	ofParameter<int> ofParamInt;
-	ofParameter<float> ofParamFloat;
-
-	void onParamIntChanged(int & pInt);
-	void onParamFloatChanged(float & pFloat);
-	void onSliderEvent(ofxDatGuiSliderEvent e);
+	ofxPanel gui;
+	bool bHide;
 };
 
 

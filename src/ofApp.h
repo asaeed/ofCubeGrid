@@ -5,6 +5,7 @@
 #include "gui.h"
 #include "socket.h"
 #include "vision.h"
+#include "cubes.h"
 
 class ofApp : public ofBaseApp {
 
@@ -30,6 +31,7 @@ class ofApp : public ofBaseApp {
 		Gui gui;
 		Socket socket;
 		Vision vision;
+		Cubes cubes;
 
 	private:
 
