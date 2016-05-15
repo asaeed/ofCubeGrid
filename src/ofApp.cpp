@@ -6,12 +6,12 @@ void ofApp::setup()
 	ofSetWindowShape(1280, 960);
 
 	gui.glue(&socket);
-	gui.glue(&cubes);
+	gui.glue(&cubeGrid);
 
 	vision.setup();
 	socket.setup();
 	gui.setup();
-	cubes.setup();
+	cubeGrid.setup();
 
 	ofBackground(0);
 	ofSetFrameRate(30);
@@ -23,7 +23,7 @@ void ofApp::update()
 	vision.update();
 	gui.update();
 	socket.update();
-	cubes.update();
+	cubeGrid.update();
 }
 
 //--------------------------------------------------------------
@@ -31,7 +31,7 @@ void ofApp::draw()
 {
 	ofClear(ofColor::black);
 
-	cubes.draw();
+	cubeGrid.draw();
 	vision.draw();
 	socket.draw();
 	gui.draw();
@@ -56,7 +56,7 @@ void ofApp::keyReleased(int key) {
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y) {
-	cubes.mouseMoved(x, y);
+	cubeGrid.mouseMoved(x, y);
 }
 
 //--------------------------------------------------------------
@@ -66,12 +66,12 @@ void ofApp::mouseDragged(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
-	cubes.mousePressed(x, y, button);
+	cubeGrid.mousePressed(x, y, button);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button) {
-	cubes.mouseReleased(x, y, button);
+	cubeGrid.mouseReleased(x, y, button);
 }
 
 //--------------------------------------------------------------

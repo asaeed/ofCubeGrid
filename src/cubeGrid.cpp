@@ -1,7 +1,7 @@
-#include "cubes.h"
+#include "cubeGrid.h"
 
 //--------------------------------------------------------------
-void Cubes::setup()
+void CubeGrid::setup()
 {
 	cam.setPosition(ofGetWindowWidth() / 2, ofGetWindowHeight() / 2, 920);
 	//cam.enableOrtho();
@@ -16,8 +16,10 @@ void Cubes::setup()
 	boxSize = 50;
 	gapSize = 5;
 
-	gridWidth = ofGetWindowWidth() / boxSize;
-	gridHeight = ofGetWindowHeight() / boxSize;
+	//gridWidth = ofGetWindowWidth() / boxSize;
+	//gridHeight = ofGetWindowHeight() / boxSize;
+	gridWidth = 1;
+	gridHeight = 1;
 
 	boxes.reserve(gridWidth * gridHeight);
 
@@ -30,7 +32,7 @@ void Cubes::setup()
 }
 
 //--------------------------------------------------------------
-void Cubes::update()
+void CubeGrid::update()
 {
 	for (int i = 0; i < boxes.size(); i++) {
 		boxes[i].update();
@@ -40,7 +42,7 @@ void Cubes::update()
 }
 
 //--------------------------------------------------------------
-void Cubes::draw()
+void CubeGrid::draw()
 {
 	ofEnableDepthTest();
 	cam.begin();
@@ -60,17 +62,17 @@ void Cubes::draw()
 }
 
 //--------------------------------------------------------------
-void Cubes::mousePressed(int x, int y, int button) {
+void CubeGrid::mousePressed(int x, int y, int button) {
 
 }
 
 //--------------------------------------------------------------
-void Cubes::mouseReleased(int x, int y, int button) {
+void CubeGrid::mouseReleased(int x, int y, int button) {
 
 }
 
-void Cubes::mouseMoved(int x, int y) {
+void CubeGrid::mouseMoved(int x, int y) {
 	for (int i = 0; i < boxes.size(); i++) {
-		boxes[i].mouseMoved(x, y);
+		boxes[i].mouseMoved(x, y, &cam);
 	}
 }

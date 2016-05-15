@@ -8,7 +8,7 @@ public:
 	void setup(int size, ofVec3f position);
 	void update();
 	void draw();
-	void mouseMoved(int x, int y);
+	void mouseMoved(int x, int y, ofCamera * cam);
 
 	ofBoxPrimitive box;
 

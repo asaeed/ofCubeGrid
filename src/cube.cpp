@@ -19,12 +19,15 @@ void Cube::draw()
 	box.draw();
 }
 
-void Cube::mouseMoved(int x, int y) {
-	ofVec3f pos = box.getPosition();
+void Cube::mouseMoved(int x, int y, ofCamera * cam) {
+	ofVec3f posOrig = box.getPosition();
+	ofVec3f pos = cam->worldToScreen(box.getPosition());
 	float size = box.getWidth();
 
+	cout << "(" << x << ", " << y << ")" << endl;
+	cout << "  (" << posOrig.x << ", " << posOrig.y << ", " << posOrig.z << ") --> (" << pos.x << ", " << pos.y << ", " << pos.z << ") " << endl;
 	// this doesn't work, need raytracing
 	if (x >= pos.x && x <= pos.x + size && y >= pos.y && y <= pos.y + size) {
-		cout << "x: " << pos.x << ", y: " << pos.y << endl;
+		
 	}
 }

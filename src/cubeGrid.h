@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "cube.h"
 
-class Cubes {
+class CubeGrid {
 
 public:
 	void setup();

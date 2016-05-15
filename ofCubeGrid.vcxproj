@@ -174,7 +174,7 @@
     <ClCompile Include="src\cube.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
-    <ClCompile Include="src\cubes.cpp" />
+    <ClCompile Include="src\cubeGrid.cpp" />
     <ClCompile Include="src\gui.cpp" />
     <ClCompile Include="src\socket.cpp" />
     <ClCompile Include="src\vision.cpp" />
@@ -202,7 +202,7 @@
   <ItemGroup>
     <ClInclude Include="src\cube.h" />
     <ClInclude Include="src\ofApp.h" />
-    <ClInclude Include="src\cubes.h" />
+    <ClInclude Include="src\cubeGrid.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\socket.h" />
     <ClInclude Include="src\vision.h" />

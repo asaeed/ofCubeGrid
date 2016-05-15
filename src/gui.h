@@ -6,7 +6,7 @@
 #include "ofxGui.h"
 
 class Socket;
-class Cubes;
+class CubeGrid;
 
 class Gui {
 
@@ -21,9 +21,9 @@ public:
 	void windowResized(int w, int h);
 
 	void glue(Socket * x);
-	void glue(Cubes * x);
+	void glue(CubeGrid * x);
 	Socket * socketPtr;
-	Cubes * cubesPtr;
+	CubeGrid * cubeGridPtr;
 
 	void camPositionZChanged(int & camPositionZ);
 

@@ -8,7 +8,7 @@
 
 #include "gui.h"
 #include "socket.h"
-#include "cubes.h"
+#include "cubeGrid.h"
 
 #include "Gui.h"
 
@@ -16,8 +16,8 @@ void Gui::glue(Socket * x) {
 	this->socketPtr = x;
 }
 
-void Gui::glue(Cubes * x) {
-	this->cubesPtr = x;
+void Gui::glue(CubeGrid * x) {
+	this->cubeGridPtr = x;
 }
 
 //--------------------------------------------------------------
@@ -42,9 +42,9 @@ void Gui::exit() {
 
 //--------------------------------------------------------------
 void Gui::camPositionZChanged(int & camPositionZ) {
-	ofVec3f pos = cubesPtr->cam.getPosition();
+	ofVec3f pos = cubeGridPtr->cam.getPosition();
 	pos.z = camPositionZ;
-	cubesPtr->cam.setPosition(pos);
+	cubeGridPtr->cam.setPosition(pos);
 }
 
 //--------------------------------------------------------------

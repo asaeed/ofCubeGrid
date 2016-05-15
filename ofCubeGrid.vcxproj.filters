@@ -7,9 +7,6 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\cubes.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\gui.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -86,6 +83,9 @@
       <Filter>addons\ofxRSSDKv2\src</Filter>
     </ClCompile>
     <ClCompile Include="src\cube.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cubeGrid.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -171,9 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\cubes.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\gui.h">
@@ -324,6 +321,9 @@
       <Filter>addons\ofxRSSDKv2\src</Filter>
     </ClInclude>
     <ClInclude Include="src\cube.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cubeGrid.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
