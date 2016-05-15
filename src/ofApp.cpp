@@ -31,9 +31,9 @@ void ofApp::draw()
 {
 	ofClear(ofColor::black);
 
+	cubes.draw();
 	vision.draw();
 	socket.draw();
-	cubes.draw();
 	gui.draw();
 	
 }
@@ -56,7 +56,7 @@ void ofApp::keyReleased(int key) {
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y) {
-
+	cubes.mouseMoved(x, y);
 }
 
 //--------------------------------------------------------------

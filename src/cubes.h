@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "cube.h"
 
 class Cubes {
 
@@ -11,6 +12,7 @@ public:
 
 	void mousePressed(int x, int y, int button);
 	void mouseReleased(int x, int y, int button);
+	void mouseMoved(int x, int y);
 
 	ofCamera cam;
 	ofLight light;
@@ -21,5 +23,5 @@ public:
 	int gapSize;
 	int gridWidth;
 	int gridHeight;
-	vector<ofBoxPrimitive> boxes;
+	vector<Cube> boxes;
 };

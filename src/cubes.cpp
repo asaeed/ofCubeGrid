@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void Cubes::setup()
 {
-	cam.setPosition(ofGetWindowWidth() / 2, ofGetWindowHeight() / 2, 900);
+	cam.setPosition(ofGetWindowWidth() / 2, ofGetWindowHeight() / 2, 920);
 	//cam.enableOrtho();
 
 	light.setup();
@@ -23,21 +23,18 @@ void Cubes::setup()
 
 	for (int x = 0; x < gridWidth; x++) {
 		for (int y = 0; y < gridHeight; y++) {
-			boxes.push_back(ofBoxPrimitive());
-			boxes[y + x*gridHeight].set(boxSize);
-			boxes[y + x*gridHeight].setPosition(x*boxSize + x*gapSize, y*boxSize + y*gapSize, 0);
+			boxes.push_back(Cube());
+			boxes[y + x*gridHeight].setup(boxSize, ofVec3f(x*boxSize + x*gapSize, y*boxSize + y*gapSize, 0));
 		}
 	}
-
-	//box.set(50);
-	//box.setPosition(ofGetWidth()*.5, ofGetHeight()*.25, 0);
-	
-	//ofEnableDepthTest();
 }
 
 //--------------------------------------------------------------
 void Cubes::update()
 {
+	for (int i = 0; i < boxes.size(); i++) {
+		boxes[i].update();
+	}
 	//box.rotate(1, 1.0, 0.0, 0.0);
 	//box.rotate(2, 0, 1.0, 0.0);
 }
@@ -70,4 +67,10 @@ void Cubes::mousePressed(int x, int y, int button) {
 //--------------------------------------------------------------
 void Cubes::mouseReleased(int x, int y, int button) {
 
+}
+
+void Cubes::mouseMoved(int x, int y) {
+	for (int i = 0; i < boxes.size(); i++) {
+		boxes[i].mouseMoved(x, y);
+	}
 }

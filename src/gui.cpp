@@ -27,7 +27,7 @@ void Gui::setup() {
 	// we add this listener before setting up so the initial circle resolution is correct
 	camPositionZ.addListener(this, &Gui::camPositionZChanged);
 
-	gui.setup("panel"); // most of the time you don't need a name but don't forget to call setup
+	gui.setup("panel", "settings.xml", 10, 640); // most of the time you don't need a name but don't forget to call setup
 	gui.add(camPositionZ.set("circleRes", 1000, 100, 2000));
 	gui.add(twoCircles.setup("twoCircles"));
 	gui.add(screenSize.set("screenSize", ""));

@@ -37,7 +37,7 @@ void Vision::update()
 
 	std::vector<std::vector<PXCPointI32*>> blobs = mRSSDK->getBlobs();
 	std::vector<std::vector<int>> blobContourSizes = mRSSDK->getBlobContourSizes();
-	cout << "# of blobs: " << blobs.size() << endl;
+	//cout << "# of blobs: " << blobs.size() << endl;
 
 	// clear prior contours
 	for (int i = 0; i < 4; i++) lines[i].clear();
