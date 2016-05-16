@@ -3,8 +3,16 @@
 //--------------------------------------------------------------
 void CubeGrid::setup()
 {
-	cam.setPosition(ofGetWindowWidth() / 2, ofGetWindowHeight() / 2, 920);
-	//cam.enableOrtho();
+	boxSize = 50;
+	gapSize = 5;
+	
+	gridWidth = ofGetWindowWidth() / (boxSize + gapSize);
+	gridHeight = ofGetWindowHeight() / (boxSize + gapSize);
+	//gridWidth = 2;
+	//gridHeight = 2;
+
+	cam.setPosition(ofGetWindowWidth() / 2, ofGetWindowHeight() / 2, 100);
+	cam.enableOrtho();
 
 	light.setup();
 	light.setDirectional();
@@ -13,20 +21,12 @@ void CubeGrid::setup()
 	material.setDiffuseColor(ofFloatColor::red);
 	material.setShininess(100);
 
-	boxSize = 50;
-	gapSize = 5;
-
-	//gridWidth = ofGetWindowWidth() / boxSize;
-	//gridHeight = ofGetWindowHeight() / boxSize;
-	gridWidth = 1;
-	gridHeight = 1;
-
 	boxes.reserve(gridWidth * gridHeight);
 
 	for (int x = 0; x < gridWidth; x++) {
 		for (int y = 0; y < gridHeight; y++) {
 			boxes.push_back(Cube());
-			boxes[y + x*gridHeight].setup(boxSize, ofVec3f(x*boxSize + x*gapSize, y*boxSize + y*gapSize, 0));
+			boxes[y + x*gridHeight].setup(boxSize, cam.worldToScreen( ofVec3f(x*boxSize + x*gapSize, y*boxSize + y*gapSize, 0)));
 		}
 	}
 }

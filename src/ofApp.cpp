@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	ofSetWindowShape(1280, 960);
+	//ofSetWindowShape(1280, 960);
 
 	gui.glue(&socket);
 	gui.glue(&cubeGrid);
@@ -46,7 +46,15 @@ void ofApp::exit()
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
-	socket.keyPressed(key);
+	//socket.keyPressed(key);
+
+	switch (key) {
+		case 'f':
+			ofToggleFullscreen();
+			break;
+		default:
+			break;
+	}
 }
 
 //--------------------------------------------------------------
@@ -57,6 +65,7 @@ void ofApp::keyReleased(int key) {
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y) {
 	cubeGrid.mouseMoved(x, y);
+	gui.mouseMoved(x, y);
 }
 
 //--------------------------------------------------------------

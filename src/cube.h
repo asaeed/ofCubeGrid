@@ -11,6 +11,7 @@ public:
 	void mouseMoved(int x, int y, ofCamera * cam);
 
 	ofBoxPrimitive box;
+	ofQuaternion targetRotation;
 
 	int boxSize;
 	int gapSize;

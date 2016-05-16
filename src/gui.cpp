@@ -31,6 +31,7 @@ void Gui::setup() {
 	gui.add(camPositionZ.set("circleRes", 1000, 100, 2000));
 	gui.add(twoCircles.setup("twoCircles"));
 	gui.add(screenSize.set("screenSize", ""));
+	gui.add(mousePos.set("mousePos", ""));
 
 	bHide = false;
 }
@@ -77,6 +78,10 @@ void Gui::keyPressed(int key) {
 //--------------------------------------------------------------
 bool Gui::mousePressed(int x, int y, int button) {
 	return true;
+}
+
+void Gui::mouseMoved(int x, int y) {
+	mousePos = ofToString(x) + ", " + ofToString(y);
 }
 
 //--------------------------------------------------------------

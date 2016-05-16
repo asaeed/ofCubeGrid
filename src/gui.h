@@ -19,6 +19,7 @@ public:
 	void keyPressed(int key);
 	bool mousePressed(int x, int y, int button);
 	void windowResized(int w, int h);
+	void mouseMoved(int x, int y);
 
 	void glue(Socket * x);
 	void glue(CubeGrid * x);
@@ -30,6 +31,7 @@ public:
 	ofParameter<int> camPositionZ;
 	ofxButton twoCircles;
 	ofParameter<string> screenSize;
+	ofParameter<string> mousePos;
 
 	ofxPanel gui;
 	bool bHide;
