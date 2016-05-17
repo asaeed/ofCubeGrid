@@ -12,9 +12,20 @@ public:
 
 	ofBoxPrimitive box;
 	ofQuaternion targetRotation;
+	ofImage image;
+	ofTexture texture;
 
-	int boxSize;
-	int gapSize;
+	ofPlanePrimitive plane;
+
+	ofVboMesh mesh;
+	ofVboMesh front;
+
 	int gridWidth;
 	int gridHeight;
+	ofVec3f boxPosition;
+	int boxSize;
+	int gapSize;
+	bool isRotating;
+	float curRotation;
+	float rotateSpeed;
 };

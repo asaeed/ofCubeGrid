@@ -16,6 +16,7 @@ public:
 
 	ofCamera cam;
 	ofLight light;
+	ofLight lightBehind;
 	ofMaterial material;
 	ofBoxPrimitive box;
 

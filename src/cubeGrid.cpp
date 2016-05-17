@@ -18,6 +18,9 @@ void CubeGrid::setup()
 	light.setDirectional();
 	light.rotate(180, 1, 0, 0);
 
+	lightBehind.setup();
+	lightBehind.setDirectional();
+
 	material.setDiffuseColor(ofFloatColor::red);
 	material.setShininess(100);
 
@@ -29,6 +32,8 @@ void CubeGrid::setup()
 			boxes[y + x*gridHeight].setup(boxSize, cam.worldToScreen( ofVec3f(x*boxSize + x*gapSize, y*boxSize + y*gapSize, 0)));
 		}
 	}
+
+	
 }
 
 //--------------------------------------------------------------
@@ -48,6 +53,7 @@ void CubeGrid::draw()
 	cam.begin();
 	ofEnableLighting();
 	light.enable();
+	//lightBehind.enable();
 
 	material.begin();
 	for (int i = 0; i < boxes.size(); i++) {
@@ -56,6 +62,7 @@ void CubeGrid::draw()
 	material.end();
 
 	light.disable();
+	//lightBehind.disable();
 	ofDisableLighting();
 	cam.end();
 	ofDisableDepthTest();
