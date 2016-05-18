@@ -8,7 +8,7 @@ void ofApp::setup()
 	gui.glue(&socket);
 	gui.glue(&cubeGrid);
 
-	vision.setup();
+	//vision.setup();
 	socket.setup();
 	gui.setup();
 	cubeGrid.setup();
@@ -20,7 +20,7 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
-	vision.update();
+	//vision.update();
 	gui.update();
 	socket.update();
 	cubeGrid.update();
@@ -32,7 +32,7 @@ void ofApp::draw()
 	ofClear(ofColor::black);
 
 	cubeGrid.draw();
-	vision.draw();
+	//vision.draw();
 	socket.draw();
 	gui.draw();
 	
@@ -40,7 +40,7 @@ void ofApp::draw()
 
 void ofApp::exit()
 {
-	vision.exit();
+	//vision.exit();
 	gui.exit();
 }
 
