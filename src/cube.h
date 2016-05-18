@@ -5,20 +5,18 @@
 class Cube {
 
 public:
-	void setup(int size, ofVec3f position);
+	void setup(int size, ofVec3f position, ofMaterial * mat);
 	void update();
-	void draw();
+	void draw(ofLight * light);
 	void mouseMoved(int x, int y, ofCamera * cam);
 
 	ofBoxPrimitive box;
-	ofQuaternion targetRotation;
-	ofImage image;
-	ofTexture texture;
-
 	ofPlanePrimitive plane;
+	ofMaterial * material;
+	ofImage image;
 
-	ofVboMesh mesh;
-	ofVboMesh front;
+	//ofVboMesh mesh;
+	//ofVboMesh front;
 
 	int gridWidth;
 	int gridHeight;
@@ -28,4 +26,6 @@ public:
 	bool isRotating;
 	float curRotation;
 	float rotateSpeed;
+	float targetRotation;
+	bool logoShown;
 };

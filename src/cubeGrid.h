@@ -18,7 +18,7 @@ public:
 	ofLight light;
 	ofLight lightBehind;
 	ofMaterial material;
-	ofBoxPrimitive box;
+	vector<ofMaterial> materials;
 
 	int boxSize;
 	int gapSize;
