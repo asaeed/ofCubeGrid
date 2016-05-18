@@ -22,11 +22,16 @@ void CubeGrid::setup()
 	lightBehind.setDirectional();
 
 	materials.push_back(ofMaterial());
-	materials.back().setDiffuseColor(ofFloatColor::blue);
+	materials.back().setDiffuseColor(ofColor(51, 156, 226, 255));  // blue
+	//materials.back().setShininess(0.0001f);
 	materials.push_back(ofMaterial());
-	materials.back().setDiffuseColor(ofFloatColor::green);
+	materials.back().setDiffuseColor(ofColor(41, 159, 85, 255));  // green
 	materials.push_back(ofMaterial());
-	materials.back().setDiffuseColor(ofFloatColor::yellow);
+	materials.back().setDiffuseColor(ofColor(255, 222, 26, 255));  // yellow
+	materials.push_back(ofMaterial());
+	materials.back().setDiffuseColor(ofColor(245, 131, 0, 255));  // orange - unused
+	materials.push_back(ofMaterial());
+	materials.back().setDiffuseColor(ofColor(222, 62, 28, 255));  // red - unused
 
 	boxes.reserve(gridWidth * gridHeight);
 

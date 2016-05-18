@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxEasing.h"
 
 class Cube {
 
@@ -21,11 +22,16 @@ public:
 	int gridWidth;
 	int gridHeight;
 	ofVec3f boxPosition;
+	ofVec3f axis;
 	int boxSize;
 	int gapSize;
+
 	bool isRotating;
-	float curRotation;
-	float rotateSpeed;
-	float targetRotation;
 	bool logoShown;
+	float initRotation;
+	float targetRotation;
+	float lastRotation;
+
+	float initTime;
+	float duration;
 };
